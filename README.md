@@ -2,7 +2,7 @@
 
 一个基于 [zyyo主页](https://zyyo.net/44.html)，用 Vue 3 + Vite 重构的个人主页项目。
 
-演示网站：[At-Home-Page](https://www.atbspb.online/)，本网站由Netlify支持。
+演示网站：[www.atbspb.online](https://www.atbspb.online/)，由 Netlify 提供支持。
 
 ## 项目结构
 
@@ -34,13 +34,13 @@ www - VUE/
 
 | 设置项 | 变量名 | 位置 |
 |--------|--------|------|
-| 主背景颜色 | `--main_bg_color` | 第 59 行（Light）/ 第 78 行（Dark） |
-| 主文字颜色 | `--main_text_color` | 第 60 行（Light）/ 第 79 行（Dark） |
-| 模块背景颜色 | `--item_bg_color` | 第 64 行（Light）/ 第 83 行（Dark） |
-| 背景滤镜模糊 | `--back_filter` | 第 71 行（Light）/ 第 90 行（Dark） |
-| 背景遮罩颜色 | `--back_filter_color` | 第 72 行（Light）/ 第 91 行（Dark） |
+| 主背景颜色 | `--main_bg_color` | 第 79 行（Light）/ 第 98 行（Dark） |
+| 主文字颜色 | `--main_text_color` | 第 80 行（Light）/ 第 99 行（Dark） |
+| 模块背景颜色 | `--item_bg_color` | 第 84 行（Light）/ 第 103 行（Dark） |
+| 背景滤镜模糊 | `--back_filter` | 第 91 行（Light）/ 第 110 行（Dark） |
+| 背景遮罩颜色 | `--back_filter_color` | 第 92 行（Light）/ 第 111 行（Dark） |
 
-**主题变量代码示例**（`src/style.css` 第 57-93 行）：
+**主题变量代码示例**（`src/style.css` 第 77-113 行）：
 
 ```css
 /* ====== 主题: Light (默认) ====== */
@@ -51,16 +51,34 @@ www - VUE/
   --purple_text_color: #747bff;
   --text_bg_color: rgba(180, 200, 230, 0.5);
   --item_bg_color: rgba(235, 240, 250, 0.25);
+  --item_hover_color: rgba(225, 235, 250, 0.4);
+  --item_left_title_color: #ffffff;
+  --item_left_text_color: #ffffff;
+  --footer_text_color: #ffffff;
+  --left_tag_item: rgba(235, 240, 250, 0.35);
+  --card_filter: 0px;
   --back_filter: 20px;
   --back_filter_color: rgba(0, 0, 0, 0.17);
+  --fill: #ffffff;
 }
 
 /* ====== Dark 主题 ====== */
 [data-theme="Dark"] {
   --main_bg_color: url(/static/img/bz-dark.jpg);
   --main_text_color: #fff;
+  --gradient: linear-gradient(120deg, rgb(133, 62, 255), #f76cc6 30%, rgb(255, 255, 255) 60%);
+  --purple_text_color: #747bff;
+  --text_bg_color: rgba(26, 4, 48, 0.5);
   --item_bg_color: rgba(19, 20, 24, 0.35);
+  --item_hover_color: rgba(19, 23, 27, 0.55);
+  --item_left_title_color: #ffffff;
+  --item_left_text_color: #ffffff;
+  --footer_text_color: #ffffff;
+  --left_tag_item: rgba(19, 20, 24, 0.35);
+  --card_filter: 0px;
+  --back_filter: 20px;
   --back_filter_color: rgba(0, 0, 0, 0.55);
+  --fill: #ffffff;
 }
 ```
 
@@ -69,15 +87,22 @@ www - VUE/
 - **Light 主题壁纸**：`public/static/img/bz-light.jpg`
 - **Dark 主题壁纸**：`public/static/img/bz-dark.jpg`
 
-背景图片样式配置（`src/style.css` 第 101-105 行）：
+背景图片样式配置（`src/style.css` 第 115-128 行）：
 
 ```css
 body {
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  font-family: "b", "a", sans-serif;
   background: var(--main_bg_color);
   background-repeat: no-repeat;
   background-size: auto;
   background-position: top center;
   background-attachment: fixed;
+  transition: color 0.1s ease;
+  color: var(--main_text_color);
 }
 ```
 
@@ -137,7 +162,7 @@ npm run preview
 
 项目支持 Light 和 Dark 两种主题，通过 `data-theme` 属性切换。主题配置在 `src/style.css` 中使用 CSS 变量定义，便于统一管理和快速修改。
 
-**主题切换逻辑**（`src/App.vue` 第 29-38 行）：
+**主题切换逻辑**（`src/App.vue` 第 48-52 行）：
 
 ```javascript
 const theme = ref('Light')
