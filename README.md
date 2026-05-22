@@ -2,7 +2,7 @@
 
 一个基于 [zyyo主页](https://zyyo.net/44.html)，用 Vue 3 + Vite 重构的个人主页项目。
 
-演示网站：[www.atbspb.online](https://www.atbspb.online/)，由 Netlify 提供支持。
+演示网站：[www.atbspb.online](https://www.atbspb.online/)。
 
 ## 项目结构
 
