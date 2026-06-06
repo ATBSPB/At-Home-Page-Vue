@@ -7,5 +7,17 @@ export default defineConfig({
     alias: {
       '@': '/src'
     }
-  }
+  },
+  build: {
+    minify: 'esbuild',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vue: ['vue'],
+        },
+      },
+    },
+    cssCodeSplit: true,
+    assetsInlineLimit: 4096,
+  },
 })

@@ -1,5 +1,3 @@
-Copyright (c) {{ currentYear }} ATBSPB. Licensed under the MIT License.
-
 <template>
   <footer :style="{ opacity: footerOpacity }">
     Copyright &copy; {{ currentYear }} ATBSPB. All rights reserved.

@@ -23,6 +23,8 @@ SOFTWARE.
       <img
         style="position: absolute; top: -15%; left: -10%; width: 120%; aspect-ratio: 1/1;"
         src="/static/img/logokuang.png"
+        loading="lazy"
+        decoding="async"
       />
     </div>
 

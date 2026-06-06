@@ -43,7 +43,7 @@ SOFTWARE.
           <h1>{{ project.name }}</h1>
         </div>
         <div class="projectItemRight">
-          <img :src="project.img" alt="" />
+          <img :src="project.img" alt="" loading="lazy" decoding="async" />
         </div>
       </a>
     </div>
@@ -55,8 +55,8 @@ SOFTWARE.
       skills
     </div>
     <div class="skill">
-      <img id="skillPc" src="/static/svg/skillPc.svg" alt="" />
-      <img id="skillWap" src="/static/svg/skillWap.svg" alt="" />
+      <img id="skillPc" src="/static/svg/skillPc.svg" alt="" loading="lazy" decoding="async" />
+      <img id="skillWap" src="/static/svg/skillWap.svg" alt="" loading="lazy" decoding="async" />
     </div>
   </content>
 </template>

@@ -29,12 +29,18 @@ import { ref, onMounted } from 'vue'
 const loadingRef = ref(null)
 
 onMounted(() => {
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      if (loadingRef.value) {
-        loadingRef.value.style.opacity = '0'
-      }
-    }, 100)
-  })
+  const hide = () => {
+    if (loadingRef.value) {
+      loadingRef.value.style.opacity = '0'
+      setTimeout(() => {
+        if (loadingRef.value) loadingRef.value.style.display = 'none'
+      }, 300)
+    }
+  }
+  if (document.readyState === 'complete') {
+    hide()
+  } else {
+    window.addEventListener('load', hide, { once: true })
+  }
 })
 </script>
