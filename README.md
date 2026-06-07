@@ -159,26 +159,6 @@ npm run build
 npm run preview
 ```
 
-### Cloudflare Workers + Pages 部署
-
-项目已配置 `wrangler.toml`，支持以下部署方式：
-
-**方式一：Cloudflare Pages**
-
-```bash
-npm run build
-npx wrangler pages deploy dist
-```
-
-**方式二：Cloudflare Workers**
-
-```bash
-npm run build
-npx wrangler deploy
-```
-
-已部署演示站：[www.atbspb.online](https://www.atbspb.online)
-
 ## 技术栈
 
 - Vue 3 - 渐进式 JavaScript 框架
@@ -200,14 +180,6 @@ function toggleTheme() {
   document.documentElement.dataset.theme = theme.value
 }
 ```
-
-## 性能优化
-
-- **代码精简**：移除冗余的 console.log、FPS 监控、右键禁用等代码
-- **图片延迟加载**：所有 `<img>` 标签添加 `loading="lazy"` 和 `decoding="async"`
-- **资源预加载**：`index.html` 中对字体和背景图使用 `<link rel="preload">`
-- **构建优化**：Vite 配置 esbuild 压缩、Vue 分包、CSS 代码分割、小资源内联
-- **SVG 图标**：项目图标使用 SVG 格式，体积更小且支持无损缩放
 
 ## 文件说明
 
